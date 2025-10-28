@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "327736374949",
+    "firebase_url": "https://mobile-cloud-app-2e98d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "mobile-cloud-app-2e98d",
+    "storage_bucket": "mobile-cloud-app-2e98d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327736374949:android:dcbc9dcff85839518ebf4c",
+        "android_client_info": {
+          "package_name": "de.hsas.inf.cloudapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoOof5jGyKkxrW6eO1WI4BHhy9NgMwYqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

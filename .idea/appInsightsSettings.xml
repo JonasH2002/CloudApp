@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="de.hsas.inf.cloudapp" />
+                  <option name="mobileSdkAppId" value="1:327736374949:android:dcbc9dcff85839518ebf4c" />
+                  <option name="projectId" value="mobile-cloud-app-2e98d" />
+                  <option name="projectNumber" value="327736374949" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
