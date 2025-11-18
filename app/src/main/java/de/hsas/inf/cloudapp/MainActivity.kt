@@ -15,7 +15,6 @@ import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
@@ -61,12 +60,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
-        }
 
         login = findViewById(R.id.login)
         saveButton = findViewById(R.id.save)
@@ -122,7 +115,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            attachDatabaseReadListener()
+            registerDatabaseReadListener()
             attachSwipeToDelete()
 
         } else {
@@ -140,7 +133,7 @@ class MainActivity : AppCompatActivity() {
             filledTextField.isEnabled = false
             todoList.clear()
             todoAdapter.notifyDataSetChanged()
-            detachDatabaseReadListener()
+            unregisterDatabaseReadListener()
         }
     }
 
@@ -160,7 +153,7 @@ class MainActivity : AppCompatActivity() {
         ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView)
     }
 
-    private fun attachDatabaseReadListener() {
+    private fun registerDatabaseReadListener() {
         if (valueEventListener == null) {
             valueEventListener = object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -183,24 +176,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun detachDatabaseReadListener() {
+    private fun unregisterDatabaseReadListener() {
         if (valueEventListener != null) {
             if (this::todosRef.isInitialized) {
                 todosRef.removeEventListener(valueEventListener!!)
             }
             valueEventListener = null
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
         }
     }
 }
